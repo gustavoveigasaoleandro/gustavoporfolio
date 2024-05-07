@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /*Colors*/
+    --primary: 237, 5, 144;
+    --secondary: 66, 9, 225;
+
+    /* Screens */
+    --screen-mobile: 390px;
+    --screen-desktop: 1440px;
+
+    /* Font Sizes */
+    --font-size-xs: 40px;
+    --font-size-sm: 45px;
+    --font-size-md: 50px;
+    --font-size-xl: 120px;
+  }
+}
