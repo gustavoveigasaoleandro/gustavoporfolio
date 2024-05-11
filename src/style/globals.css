@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "bessemer-bold";
+  src: url("../assets/fonts/Inconsolata/Inconsolata-VariableFont_wdth,wght.ttf")
+    format("truetype");
+}
+
+* {
+  font-family: "bessemer-bold", sans-serif; /* Fallback to sans-serif if the custom font fails to load */
+}
+
+@layer base {
+  :root {
+    /*Colors*/
+    --primary: 237, 5, 144;
+    --secondary: 66, 9, 225;
+    --bg-light: 217, 217, 217;
+    /* Screens */
+    --screen-mobile: 390px;
+    --screen-desktop: 1440px;
+
+    /* Font Sizes */
+    --font-size-4xs: 20px;
+    --font-size-3xs: 25px;
+    --font-size-2xs: 30px;
+    --font-size-xs: 40px;
+    --font-size-sm: 45px;
+    --font-size-md: 50px;
+    --font-size-xl: 120px;
+  }
+}
