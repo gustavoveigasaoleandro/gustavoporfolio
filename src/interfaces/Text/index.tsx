@@ -5,4 +5,5 @@ export interface TextInterface
   type?: "small" | "medium" | "large";
   color?: "primary" | "secondary" | "white";
   font?: string;
+  costumStyle?: string;
 }
