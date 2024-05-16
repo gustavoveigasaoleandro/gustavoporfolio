@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
 
-import { PopUp } from "./PopUp";
+import { PopUpTrigger } from "./PopUpTrigger";
 const meta: Meta<any> = {
-  title: "Molecules/PopUp",
+  title: "Organisms/PopUpTrigger",
   decorators: [(Story) => <div className="">{<Story />}</div>],
-  component: PopUp,
+  component: PopUpTrigger,
   argTypes: {},
 };
 
