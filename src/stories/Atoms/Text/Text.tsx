@@ -19,12 +19,14 @@ export const Text = ({
   type = "medium",
   color = "primary",
   children,
+  costumStyle,
   font = "",
-  ...rest
 }: TextInterface) => {
   const size = SizeGenerator({ type });
 
   const textColor = ColorGenerator({ color });
 
-  return <p className={`${size} ${textColor} ${font}`}>{children}</p>;
+  return (
+    <p className={`${size} ${textColor} ${font} ${costumStyle}`}>{children}</p>
+  );
 };
