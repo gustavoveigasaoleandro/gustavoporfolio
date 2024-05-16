@@ -46,6 +46,9 @@ const config = {
           default: "#D9D9D9",
         },
       },
+      transitionProperty: {
+        scale: "transform",
+      },
       // Widths
       width: {
         "3xs": "15px", // Corresponds to 15px
@@ -65,7 +68,7 @@ const config = {
         xs: "18px", // Corresponds to 18px
         sm: "22px", // Corresponds to 22px
         md: "52px", // Corresponds to 52px (adjusted to match closest provided measurement)
-        lg: "113px", // Corresponds to 113px (adjusted for approximation)
+        lg: "114px", // Corresponds to 113px (adjusted for approximation)
         xl: "252px", // Corresponds to 252px
         "2xl": "397px", // Corresponds to 397px
         "3xl": "772px", // Adjusted to 772px to match provided measurements
