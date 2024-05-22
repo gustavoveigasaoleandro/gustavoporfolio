@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
 
-import { Header } from "./Header";
+import { HeaderComponent } from "./Header";
 import { TextInterface } from "@/interfaces/Text";
 const meta: Meta<TextInterface> = {
-  title: "Atoms/Header",
-  component: Header,
+  title: "Atoms/HeaderComponent",
+  component: HeaderComponent,
   argTypes: {
     type: {
       type: "string",
