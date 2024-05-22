@@ -15,8 +15,8 @@ function SizeGenerator({ type }: TextInterface) {
   }
 }
 
-export const Header = ({
-  type = "medium",
+export const HeaderComponent = ({
+  type = "large",
   color = "primary",
   children,
   className,
