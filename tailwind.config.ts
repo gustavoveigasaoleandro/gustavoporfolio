@@ -3,10 +3,11 @@ import type { Config } from "tailwindcss";
 const config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
+    "./app/pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   prefix: "",
   theme: {
@@ -35,9 +36,13 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        main: "url('/assets/images/background/Background.svg')",
+      },
       colors: {
         primary: {
           default: "#22385C" /*237, 5, 144*/,
+          darker: "#052441",
         },
         secondary: {
           default: "#E25813" /*66, 9, 225*/,
