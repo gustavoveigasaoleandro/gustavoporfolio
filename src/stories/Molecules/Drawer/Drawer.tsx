@@ -30,7 +30,7 @@ export function DrawerComponent() {
         <nav className=" bg-primary-default w-[35%] mobile:w-[100%] h-full flex flex-col justify-center align-middle items-center selection:text-center cursor-pointer">
           <Text color="white">início</Text>
           <Text color="white">projetos</Text>
-          <Text color="white">projetos</Text>
+          <Text color="white">experiência</Text>
           <Text color="white">habilidades</Text>
         </nav>
       </DrawerContent>
