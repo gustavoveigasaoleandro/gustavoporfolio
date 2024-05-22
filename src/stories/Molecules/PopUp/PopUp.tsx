@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { AvatarIcon } from "@/stories/Atoms/Avatar/Avatar";
-import { Header } from "@/stories/Atoms/Headers/Header";
+import { HeaderComponent } from "@/stories/Atoms/Headers/Header";
 import { InputComponent } from "@/stories/Atoms/Input/Input";
 import { TextAreaComponent } from "@/stories/Atoms/TextArea/TextArea";
 
@@ -19,9 +19,9 @@ export const PopUp = () => {
         <AvatarIcon url="https://avatars.githubusercontent.com/u/55115090?v=4" />
       </CardHeader>
       <CardHeader className="flex justify-center items-center w-full p-0 pb-1">
-        <Header color="white" type={"medium"} className=" w-fit">
+        <HeaderComponent color="white" type={"medium"} className=" w-fit">
           Vamos conversar
-        </Header>
+        </HeaderComponent>
       </CardHeader>
       <CardContent>
         <form className="flex flex-col gap-5">
