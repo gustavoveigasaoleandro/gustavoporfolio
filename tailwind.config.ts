@@ -21,12 +21,16 @@ const config = {
       xs: "var(--font-size-xs)" /*40px*/,
       sm: "var(--font-size-sm)" /*45px*/,
       md: "var(--font-size-md)" /*50px*/,
-      xl: "var(--font-size-xl)" /*120px*/,
+      xl: "var(--font-size-xl)" /*85px*/,
+      "2xl": "var(--font-size-2xl)" /*120px*/,
     },
 
     screens: {
-      mobile: "var(--screen-mobile)",
-      desktop: "var(--screen-desktop)",
+      mobile: "425px",
+      tablet: "769px",
+      laptop: "1024px",
+      desktop: "1080px",
+      television: "1430px",
     },
     container: {
       center: true,
