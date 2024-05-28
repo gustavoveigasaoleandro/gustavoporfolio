@@ -3,10 +3,10 @@ import { BoxProps } from "@/interfaces/Box";
 function SizeGenerator({ type, active }: BoxProps) {
   switch (type) {
     case "normal":
-      return ` w-3xl ${active ? "bg-red-300 shadow-2xl" : ""}   border-[1px] border-secondary-default h-xl rounded-3xl mobile:w-[224px] mobile:h-lg `;
+      return ` mobile:w-[224px] mobile:h-lg tablet:w-3xl tablet:h-xl desktop:w-3xl desktop:h-xl ${active ? "bg-red-300 shadow-2xl" : ""}   border-[1px] border-secondary-default  rounded-3xl `;
       break;
     default:
-      return "w-4xl h-[397px] rounded-3xl mobile:w-[306px] mobile:h-[234px]";
+      return "mobile:w-[306px] mobile:h-[234px] tablet:w-[600px] tablet:h-[458px] desktop:w-4xl desktop:h-[397px] rounded-3xl ";
       break;
   }
 }

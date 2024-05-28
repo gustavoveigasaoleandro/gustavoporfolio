@@ -17,7 +17,7 @@ export function DrawerComponent() {
       <DrawerTrigger asChild>
         <button>
           <Image
-            className="w-[30px] cursor-pointer mobile:[21px]"
+            className="desktop:w-[30px] cursor-pointer mobile:[21px]"
             src={MenuIcon}
             alt="Menu button"
           />
@@ -27,7 +27,7 @@ export function DrawerComponent() {
         <div className=" flex-grow h-full">
           <DrawerClose className="w-full h-full"></DrawerClose>
         </div>
-        <nav className=" bg-primary-default w-[35%] mobile:w-[100%] h-full flex flex-col justify-center align-middle items-center selection:text-center cursor-pointer">
+        <nav className=" bg-primary-default desktop:w-[35%] mobile:w-[100%] h-full flex flex-col justify-center align-middle items-center selection:text-center cursor-pointer">
           <Text color="white">início</Text>
           <Text color="white">projetos</Text>
           <Text color="white">experiência</Text>

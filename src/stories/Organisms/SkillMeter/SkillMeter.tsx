@@ -10,7 +10,7 @@ export const SkillMeter = ({ progress, skill }: SkillMeterProps) => {
         {skill}
         {">"}
       </Text>
-      <div className="flex w-[552px] mobile:w-[265px] align-middle items-center gap-5">
+      <div className="flex desktop:w-[552px] mobile:w-[90vw] justify-center align-middle items-center gap-5">
         <ProgressBar progressValue={progress} />
         <Text color="white" type="small">
           {progress}%
