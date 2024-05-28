@@ -7,10 +7,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { AvatarIcon } from "@/stories/Atoms/Avatar/Avatar";
+import { AvatarIcon } from "@/stories/Molecules/Avatar/Avatar";
 import { HeaderComponent } from "@/stories/Atoms/Headers/Header";
-import { InputComponent } from "@/stories/Atoms/Input/Input";
-import { TextAreaComponent } from "@/stories/Atoms/TextArea/TextArea";
+import { InputComponent } from "@/stories/Molecules/Input/Input";
+import { TextAreaComponent } from "@/stories/Molecules/TextArea/TextArea";
 
 export const PopUp = () => {
   return (
