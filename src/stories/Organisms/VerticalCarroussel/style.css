@@ -1,6 +1,5 @@
 .embla {
-  max-width: 500px;
-  margin: auto;
+  width: 100%;
   --slide-height: 368px;
   --slide-spacing: 0rem;
   --slide-size: 70%;
@@ -35,26 +34,4 @@
   left: 0;
   right: 0;
   margin: auto;
-}
-
-.embla__dots {
-  flex-direction: column;
-  justify-content: center;
-  padding: 10px;
-  padding-left: 20%;
-}
-
-.dot {
-  background-color: #d9d9d9;
-  border: none;
-  width: 22px;
-  height: 22px;
-  margin: 5px;
-  border-radius: 100%;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.dot--active {
-  background-color: #e25813;
 }
