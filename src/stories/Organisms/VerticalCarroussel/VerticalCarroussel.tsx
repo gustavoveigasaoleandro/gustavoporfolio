@@ -19,9 +19,10 @@ export const EmblaCarousel: React.FC<PropType> = ({
   slidesData = [],
   options,
 }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    Autoplay({ playOnInit: true }),
-  ]);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { ...options, containScroll: "trimSnaps" },
+    [Autoplay({ playOnInit: false })]
+  );
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
@@ -45,12 +46,12 @@ export const EmblaCarousel: React.FC<PropType> = ({
   };
 
   return (
-    <div className="embla flex">
+    <div className="embla flex ">
       <section className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slidesData.map((data, index) => (
             <div
-              className={`embla__slide transition-scale duration-500 ${index === selectedIndex ? "scale-125 z-10" : "scale-100"}`}
+              className={`embla__slide transition-scale duration-500 ${index === selectedIndex ? "scale-105 z-10" : "scale-100"}`}
               key={index}
             >
               <Box active={index === selectedIndex} type={data.type} />
