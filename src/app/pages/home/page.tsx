@@ -3,8 +3,9 @@ import LogoImg from "@/assets/images/Logo/Logo.svg";
 import { Header } from "@/stories/Organisms/Header/Header";
 import { HeaderComponent } from "@/stories/Atoms/Headers/Header";
 import { SkillMeter } from "@/stories/Organisms/SkillMeter/SkillMeter";
-import { EmblaCarousel } from "@/stories/Organisms/VerticalCarroussel/VerticalCarroussel";
 import { EmblaOptionsType } from "embla-carousel";
+import { Carroussel } from "@/stories/Organisms/Carroussel/Carroussel";
+import { PopUpTrigger } from "@/stories/Organisms/PopUpTrigger/PopUpTrigger";
 
 const OPTIONS: EmblaOptionsType = {
   axis: "y",
@@ -15,19 +16,23 @@ const home = () => {
   return (
     <div className=" overflow-x-hidden">
       <Header />
-      <div className="w-screen overflow-hidden h-screen bg-primary-default">
-        <div className=" w-full h-full bg-main pt-[124px] mobile:pt-[57px] flex justify-center">
+      <PopUpTrigger />
+      <div className="w-screen overflow-hidden desktop:min-h-screen tablet:h-fit laptop:h-fit mobile:h-fit bg-primary-default">
+        <div className=" w-full desktop:min-h-screen tablet:h-fit laptop:h-fit  l mobile:h-fit bg-main desktop:pt-[124px] mobile:pt-[57px] flex justify-center">
           <Image className=" w-[80%]" src={LogoImg} alt="image from the logo" />
         </div>
       </div>
-      <div className="w-screen min-h-screen bg-primary-default">
-        <div className=" flex justify-evenly w-screen h-screen bg-main ">
-          <section>
-            <HeaderComponent className="  font-semibold" color="secondary">
+      <div className="w-screen desktop:min-h-screen tablet:h-fit laptop:h-fit mobile:h-fit bg-primary-default">
+        <div className=" flex desktop:flex-row mobile:flex-col justify-evenly w-screen desktop:min-h-screen tablet:h-fit laptop:h-fit  l mobile:h-fit ">
+          <section className=" flex flex-col justify-start items-center  ">
+            <HeaderComponent
+              className=" text-center font-semibold "
+              color="secondary"
+            >
               HABILIDADES
             </HeaderComponent>
 
-            <div className=" flex flex-col">
+            <div className=" flex flex-col w-full justify-center items-center ">
               <SkillMeter progress={90} skill={"html"} />
               <SkillMeter progress={30} skill={"html"} />
               <SkillMeter progress={50} skill={"html"} />
@@ -36,17 +41,21 @@ const home = () => {
             </div>
           </section>
 
-          <section className=" text-center flex flex-col h-full">
-            <HeaderComponent className=" font-semibold m-0" color="secondary">
+          <section className=" text-center flex-col justify-center items-center align-middle h-full ">
+            <HeaderComponent className=" font-semibold m-0 " color="secondary">
               EXPERIÊNCIAS
             </HeaderComponent>
-            <div className="relative k flex  flex-col overflow-hidden justify-center align-middle  w-[50vw] flex-grow">
-              <EmblaCarousel slidesData={slidesData} options={OPTIONS} />
-            </div>
           </section>
         </div>
       </div>
-      <div className="w-screen overflow-hidden h-screen bg-primary-default" />
+      <div className="w-screen h-screen bg-primary-default">
+        <div className=" flex flex-col justify-evenly items-center w-full h-full">
+          <HeaderComponent className=" font-semibold m-0" color="secondary">
+            PROJETOS
+          </HeaderComponent>
+          <Carroussel />
+        </div>
+      </div>
     </div>
   );
 };
