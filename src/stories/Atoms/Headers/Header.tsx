@@ -4,13 +4,13 @@ import { ColorGenerator } from "@/utils/ColorPallete";
 function SizeGenerator({ type }: TextInterface) {
   switch (type) {
     case "small":
-      return "text-xs mobile:text-3xs";
+      return "desktop:text-xs mobile:text-3xs tablet:text-3xs laptop:text-3xs";
       break;
     case "medium":
-      return "text-md mobile:text-2xs";
+      return "desktop:text-md mobile:text-2xs tablet:text-2xs laptop:text-2xs";
       break;
     default:
-      return "text-xl mobile:text-md";
+      return "television:text-2xl desktop:text-xl mobile:text-md tablet:text-md laptop:text-md";
       break;
   }
 }
