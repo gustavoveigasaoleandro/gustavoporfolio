@@ -12,6 +12,27 @@
   font-family: "bessemer-bold", sans-serif; /* Fallback to sans-serif if the custom font fails to load */
 }
 
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.dot {
+  background-color: #d9d9d9;
+  border: none;
+  width: 15px;
+  height: 15px;
+  margin: 0 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot--active {
+  background-color: #e25813;
+}
+
 @layer base {
   :root {
     /*Colors*/
@@ -23,6 +44,7 @@
     --screen-desktop: 1440px;
 
     /* Font Sizes */
+    --font-size-5xs: 13px;
     --font-size-4xs: 20px;
     --font-size-3xs: 25px;
     --font-size-2xs: 30px;
