@@ -4,7 +4,7 @@ import { ColorGenerator } from "@/utils/ColorPallete";
 function SizeGenerator({ type }: TextInterface) {
   switch (type) {
     case "small":
-      return "desktop:text-2xs mobile:text-5xs";
+      return "desktop:text-3xs mobile:text-5xs";
       break;
     case "medium":
       return "desktop:text-xs mobile:text-4xs";
@@ -27,6 +27,8 @@ export const Text = ({
   const textColor = ColorGenerator({ color });
 
   return (
-    <p className={`${size} ${textColor} ${font} ${costumStyle}`}>{children}</p>
+    <p className={`${size} z-10 ${textColor} ${font} ${costumStyle}`}>
+      {children}
+    </p>
   );
 };
