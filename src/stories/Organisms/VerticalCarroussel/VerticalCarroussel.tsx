@@ -1,73 +1,121 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import { Box } from "@/stories/Molecules/Box/Box";
-import { EmblaOptionsType } from "embla-carousel";
+import styled from "@emotion/styled";
+import Slide from "../Slide/Slide"; // Certifique-se de ajustar o caminho do Slide corretamente
 import "./style.css";
+
+const Wrapper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+`;
+
+function mod(a: number, b: number) {
+  return ((a % b) + b) % b;
+}
 
 type SlideData = {
   type: string;
 };
 
-type PropType = {
+type VerticalCarouselProps = {
   slidesData: SlideData[];
-  options?: EmblaOptionsType;
+  offsetRadius?: number;
+  showNavigation?: boolean;
+  animationConfig?: any;
 };
 
-export const EmblaCarousel: React.FC<PropType> = ({
+type SlidesArray = { data: SlideData; index: number };
+
+export const VerticalCarousel: React.FC<VerticalCarouselProps> = ({
   slidesData = [],
-  options,
+  offsetRadius = 2,
+  showNavigation = true,
+  animationConfig = { tension: 120, friction: 14 },
 }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { ...options, containScroll: "trimSnaps" },
-    [Autoplay({ playOnInit: false })]
-  );
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  const [index, setIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [presentableSlides, setPresentableSlides] = useState<SlidesArray[]>([]);
 
   useEffect(() => {
-    if (!emblaApi) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.isComposing) return;
 
-    setScrollSnaps(emblaApi.scrollSnapList());
-    const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
+      if (event.key === "ArrowUp") {
+        moveSlide(-1);
+      } else if (event.key === "ArrowDown") {
+        moveSlide(1);
+      }
     };
 
-    emblaApi.on("select", onSelect);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi]);
+  const modBySlidesLength = (index: number) => {
+    return mod(index, slidesData.length);
+  };
 
-  const scrollTo = (index: number) => {
-    emblaApi && emblaApi.scrollTo(index);
+  const moveSlide = (direction: number) => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setIndex((prevIndex) => modBySlidesLength(prevIndex + direction));
+  };
+
+  useEffect(() => {
+    setPresentableSlides(getPresentableSlides());
+    const timer = setTimeout(() => setIsAnimating(false), 500);
+
+    return () => clearTimeout(timer);
+  }, [index]);
+
+  const clampOffsetRadius = (offsetRadius: number) => {
+    const upperBound = Math.floor((slidesData.length - 1) / 2);
+    return Math.max(0, Math.min(offsetRadius, upperBound));
+  };
+
+  const getPresentableSlides = () => {
+    let clampedOffsetRadius = clampOffsetRadius(offsetRadius);
+    const presentableSlides = [];
+
+    for (let i = -clampedOffsetRadius; i <= clampedOffsetRadius; i++) {
+      presentableSlides.push({
+        data: slidesData[modBySlidesLength(index + i)],
+        index: modBySlidesLength(index + i),
+      });
+    }
+
+    return presentableSlides;
   };
 
   return (
-    <div className="embla flex ">
-      <section className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
-          {slidesData.map((data, index) => (
-            <div
-              className={`embla__slide transition-scale duration-500 ${index === selectedIndex ? "scale-105 z-10" : "scale-100"}`}
-              key={index}
-            >
-              <Box active={index === selectedIndex} type={data.type} />
-            </div>
-          ))}
-        </div>
-      </section>
-      <div className="embla__dots flex flex-col items-center">
-        {scrollSnaps.map((_, index) => (
-          <button
-            key={index}
-            className={`dot self-center ${index === selectedIndex ? "dot--active" : ""}`}
-            onClick={() => scrollTo(index)}
+    <React.Fragment>
+      <Wrapper>
+        {presentableSlides.map((slide, presentableIndex) => (
+          <Slide
+            key={slide.index}
+            content={slide.data}
+            moveSlide={moveSlide}
+            offsetRadius={clampOffsetRadius(offsetRadius)}
+            index={presentableIndex}
+            animationConfig={animationConfig}
           />
         ))}
-      </div>
-    </div>
+        {showNavigation && (
+          <div className="dots z-10 flex absolute bottom-2">
+            {slidesData.map((_, i) => (
+              <button
+                key={i}
+                className={`dot ${i === index ? "dot--active" : ""}`}
+                onClick={() => setIndex(i)}
+              />
+            ))}
+          </div>
+        )}
+      </Wrapper>
+    </React.Fragment>
   );
 };
