@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Slide from "../Slide/Slide"; // Certifique-se de ajustar o caminho do Slide corretamente
-import "./style.css";
 
 const Wrapper = styled.div`
   position: relative;
