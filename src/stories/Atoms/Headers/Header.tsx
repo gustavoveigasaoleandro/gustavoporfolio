@@ -7,10 +7,10 @@ function SizeGenerator({ type }: TextInterface) {
       return "desktop:text-xs mobile:text-3xs tablet:text-3xs laptop:text-3xs";
       break;
     case "medium":
-      return "desktop:text-md mobile:text-2xs tablet:text-2xs laptop:text-2xs";
+      return "desktop:text-md mobile:text-3xs tablet:text-2xs laptop:text-2xs";
       break;
     default:
-      return "television:text-2xl desktop:text-xl mobile:text-md tablet:text-md laptop:text-md";
+      return "television:text-2xl desktop:text-xl mobile:text-[40px] tablet:text-sm laptop:text-md";
       break;
   }
 }
@@ -27,7 +27,10 @@ export const HeaderComponent = ({
   const textColor = ColorGenerator({ color });
 
   return (
-    <p className={`${className} ${size} ${textColor}`} {...rest}>
+    <p
+      className={`${className} opacity-100 z-10 ${size} ${textColor}`}
+      {...rest}
+    >
       {children}
     </p>
   );
