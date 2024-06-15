@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
-import "./style.css"; // Certifique-se de adicionar suas classes CSS personalizadas aqui
 
 export const WorkGif = () => {
   return (

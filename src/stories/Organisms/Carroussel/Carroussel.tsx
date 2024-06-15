@@ -1,5 +1,4 @@
 "use client";
-import "./style.css";
 import { useState, useEffect, Children } from "react";
 import { config } from "react-spring";
 import dynamic from "next/dynamic";

@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import "./style.css";
 import { Progress } from "@/components/ui/progress";
 import { ProgressBarProps } from "@/interfaces/ProgressBar";
 
