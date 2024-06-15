@@ -15,6 +15,7 @@ const config = {
       mulish: "Poppins, sans-serif",
     },
     fontSize: {
+      "5xs": "var(--font-size-5xs)" /*10px*/,
       "4xs": "var(--font-size-4xs)" /*20px*/,
       "3xs": "var(--font-size-3xs)" /*25px*/,
       "2xs": "var(--font-size-2xs)" /*30px*/,
@@ -26,7 +27,7 @@ const config = {
     },
 
     screens: {
-      mobile: "425px",
+      mobile: "200px",
       tablet: "769px",
       laptop: "1024px",
       desktop: "1080px",
@@ -41,7 +42,9 @@ const config = {
     },
     extend: {
       backgroundImage: {
-        main: "url('/assets/images/background/Background.svg')",
+        main: "url('../assets/images/background/Background.svg')",
+        city: "url('../assets/images/backgroundImages/city.jpg')",
+        office: "url('../assets/images/backgroundImages/office.jpeg')",
       },
       colors: {
         primary: {
