@@ -5,14 +5,14 @@ import { Textarea } from "@/components/ui/textarea";
 
 export const TextAreaComponent = ({ label, id, name }: InputProps) => {
   return (
-    <div className="grid w-full  items-center gap-1">
+    <div className="grid w-full  items-center gap-2">
       <Label htmlFor={id}>
         <Text color="white" type="medium">
           {"{"} {label} {"}"}
         </Text>
       </Label>
       <Textarea
-        className=" text-3xs resize-none  bg-light-default h-[113px]  w-full mobile:h-[48px] "
+        className=" text-3xs resize-none  bg-light-default h-[113px]  w-full mobile:h-[20vh] "
         name={name}
         id={id}
         placeholder=""
