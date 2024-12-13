@@ -36,7 +36,7 @@ export const Project: React.FC<ProjectProps> = ({
             <Image
               src={imageSrc}
               alt={imageAlt}
-              objectFit="cover"
+              style={{ objectFit: "cover" }}
               className="rounded-md hover:shadow-2xl hover:scale-105 transition-transform duration-1000"
             />
           </div>
