@@ -15,7 +15,7 @@ const meta: Meta<TextInterface> = {
     color: {
       type: "string",
       control: "select",
-      options: ["primary", "secondary", "white"],
+      options: ["primary", "secondary", "white", "black"],
       defaultValue: "primary",
     },
   },
