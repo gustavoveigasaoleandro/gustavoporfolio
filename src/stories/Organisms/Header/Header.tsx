@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 import { Text } from "@/stories/Atoms/Text/Text";
 import { DrawerComponent } from "@/stories/Molecules/Drawer/Drawer";
 import "./style.css";
+import { useLoading } from "@/context/LoadingContext";
 export const Header = () => {
   const [isAtTop, setIsAtTop] = useState(true);
-
+  const { setIsLoading } = useLoading();
   const handleScroll = () => {
     if (window.scrollY === 0) {
       setIsAtTop(true);
@@ -13,6 +14,11 @@ export const Header = () => {
       setIsAtTop(false);
     }
   };
+
+  useEffect(() => {
+    // Desativa a tela de carregamento após a primeira renderização
+    setIsLoading(false);
+  }, [setIsLoading]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -23,7 +29,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`w-screen z-20 flex align-middle items-center pr-[2%] pl-[2%] justify-between bg-primary-darker desktop:h-[124px] mobile:h-[57px] ${
+      className={`w-full z-20 flex align-middle items-center pr-[2%] pl-[2%] justify-between bg-primary-darker desktop:h-[124px] mobile:h-[57px] ${
         isAtTop ? "header-slide-down" : "hidden"
       }`}
     >
