@@ -12,8 +12,12 @@ function SizeGenerator({ type, active }: BoxProps) {
   switch (type) {
     case "normal":
       return ` mobile:w-[290px] mobile:h-[170px] tablet:w-3xl tablet:h-xl desktop:w-3xl desktop:h-xl ${active ? "bg-red-300 shadow-2xl" : ""}   border-[1px] border-secondary-default  rounded-3xl `;
+      break;
+    case "timeline":
+      return "mobile:w-[200px] h-fit pt-2 pb-2  tablet:w-[300px] gap-6 desktop:w-[700px]  rounded-xl";
+      break;
     default:
-      return "mobile:w-[270px]  mobile:h-[250px] tablet:w-[600px] tablet:h-[458px] desktop:w-4xl desktop:h-[397px] rounded-3xl ";
+      return "mobile:w-[270px]   mobile:h-[250px] tablet:w-[600px] tablet:h-[458px] desktop:w-4xl desktop:h-[397px] rounded-3xl ";
   }
 }
 
@@ -26,7 +30,7 @@ export const Box = ({
   const size = SizeGenerator({ type, active });
   return (
     <div
-      className={`${size} ${style} flex flex-col min-h-fit align-middle items-center justify-center gap-[10%] relative overflow-hidden embla__slide__number bg-light-default`}
+      className={`${size} ${style} flex flex-col min-h-fit align-middle items-center justify-center  gap-[10%] relative overflow-hidden embla__slide__number bg-light-default`}
     >
       {children}
     </div>
