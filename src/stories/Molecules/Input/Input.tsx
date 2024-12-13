@@ -12,7 +12,7 @@ export const InputComponent = ({
   ...rest
 }: InputProps) => {
   return (
-    <div className="grid w-[47%] items-center gap-2">
+    <div className="grid tablet:w-[47%] mobile:w-full items-center gap-2">
       <Label htmlFor={id}>
         <Text type="medium" color="white">
           {"{"} {label} {"}"}
@@ -24,7 +24,7 @@ export const InputComponent = ({
         name={name}
         placeholder={placeholder}
         {...rest}
-        className=" bg-light-default shadow-2xl laptop:rounded-[9px] mobile:rounded-[5px] mobile:h-[19px] laptop:h-[52px] w-full tablet:text-3xs mobile:text-4xs"
+        className=" bg-light-default shadow-2xl laptop:rounded-[9px] mobile:rounded-[5px] mobile:h-[50px] laptop:h-[52px] w-full tablet:text-3xs mobile:text-4xs"
       />
     </div>
   );
