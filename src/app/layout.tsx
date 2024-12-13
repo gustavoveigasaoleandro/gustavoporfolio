@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/style/globals.css";
+import { LoadingProvider } from "@/context/LoadingContext";
+import { LoadingScreen } from "@/stories/Organisms/LoadingScreen/LoadingScreen";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,7 +17,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        {/* Adicione a meta tag diretamente aqui */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
+      <body className={inter.className}>
+        {" "}
+        <LoadingProvider>
+          <LoadingScreen />
+          {children}
+        </LoadingProvider>
+      </body>
     </html>
   );
 }
