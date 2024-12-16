@@ -58,7 +58,7 @@ export const TimelineComponent = () => {
               color="secondary"
               costumStyle="font-bold w-[90%]  text-left"
             >
-              2021 - Meu primeiro estágio
+              2021 - Tecmed
             </Text>
             <Image alt="Intern image" src={InternImg} className=" w-[90%]" />
             <Text type="small" costumStyle="  w-[90%] text-left">
@@ -111,7 +111,7 @@ export const TimelineComponent = () => {
               color="secondary"
               costumStyle="font-bold w-[90%]  text-left"
             >
-              2022 (JAN-JUNHO) - Meu primeiro trabalho como desenvolvedor
+              2022 FirstPag - Meu primeiro trabalho como desenvolvedor
             </Text>
             <Image alt="college image" src={FirstJob} className=" w-[90%]" />
             <Text type="small" costumStyle="  w-[90%] text-left">
@@ -139,9 +139,9 @@ export const TimelineComponent = () => {
             </Text>
             <Image alt="college image" src={EngecompImg} className=" w-[90%]" />
             <Text type="small" costumStyle="  w-[90%] text-left">
-              Trabalhei por mais de um ano na Engecomp com desenvolvedores
-              seniors, onde aprendi boas práticas, participei de projetos
-              complexos e evoluí em trabalho em equipe.
+              Na Engecomp trabalhei com desenvolvedores seniors, onde aprendi
+              boas práticas, participei de projetos complexos e evoluí
+              profissionalmente.
             </Text>
           </TimelineBox>{" "}
         </TimelineContent>
