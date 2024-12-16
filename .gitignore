@@ -8,7 +8,8 @@
 
 # testing
 /coverage
-
+# Ignorar os arquivos gerados pelo Storybook
+storybook-static/
 # next.js
 /.next/
 /out/
@@ -36,3 +37,4 @@ yarn-error.log*
 next-env.d.ts
 
 *storybook.log
+src/test/__snapshots__/DrawerComponent.test.js.snap
