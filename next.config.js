@@ -16,6 +16,16 @@ const nextConfig = {
         destination: "/pages/home",
         permanent: true,
       },
+      {
+        source: "/studies",
+        destination: "/pages/studies",
+        permanent: true,
+      },
+      {
+        source: "/experiences",
+        destination: "/pages/experiences",
+        permanent: true,
+      },
     ];
   },
 };
