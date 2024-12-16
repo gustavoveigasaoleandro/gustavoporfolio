@@ -3,7 +3,7 @@ import { config } from "react-spring";
 
 import { VerticalCarousel } from "./VerticalCarroussel";
 import { EmblaOptionsType } from "embla-carousel";
-import { Logos } from "@/stories/Atoms/Logos/Logos";
+import { Logos } from "@/stories/Organisms/Logos/Logos";
 
 const OPTIONS: EmblaOptionsType = {
   axis: "y",
