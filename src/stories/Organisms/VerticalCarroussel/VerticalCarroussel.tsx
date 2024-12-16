@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import styled from "@emotion/styled";
-import Slide from "../Slide/Slide"; // Certifique-se de ajustar o caminho do Slide corretamente
+import Slide from "../Slide/Slide";
 
 const Wrapper = styled.div`
   position: relative;
@@ -39,6 +39,42 @@ export const VerticalCarousel: React.FC<VerticalCarouselProps> = ({
   const [isAnimating, setIsAnimating] = useState(false);
   const [presentableSlides, setPresentableSlides] = useState<SlidesArray[]>([]);
 
+  const modBySlidesLength = useCallback(
+    (index: number) => mod(index, slidesData.length),
+    [slidesData.length]
+  );
+
+  const moveSlide = useCallback(
+    (direction: number) => {
+      if (isAnimating) return;
+      setIsAnimating(true);
+      setIndex((prevIndex) => modBySlidesLength(prevIndex + direction));
+    },
+    [isAnimating, modBySlidesLength]
+  );
+
+  const clampOffsetRadius = useCallback(
+    (offsetRadius: number) => {
+      const upperBound = Math.floor((slidesData.length - 1) / 2);
+      return Math.max(0, Math.min(offsetRadius, upperBound));
+    },
+    [slidesData.length]
+  );
+
+  const getPresentableSlides = useCallback(() => {
+    let clampedOffsetRadius = clampOffsetRadius(offsetRadius);
+    const presentableSlides = [];
+
+    for (let i = -clampedOffsetRadius; i <= clampedOffsetRadius; i++) {
+      presentableSlides.push({
+        data: slidesData[modBySlidesLength(index + i)],
+        index: modBySlidesLength(index + i),
+      });
+    }
+
+    return presentableSlides;
+  }, [clampOffsetRadius, index, modBySlidesLength, offsetRadius, slidesData]);
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.isComposing) return;
@@ -52,43 +88,14 @@ export const VerticalCarousel: React.FC<VerticalCarouselProps> = ({
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, []);
-
-  const modBySlidesLength = (index: number) => {
-    return mod(index, slidesData.length);
-  };
-
-  const moveSlide = (direction: number) => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setIndex((prevIndex) => modBySlidesLength(prevIndex + direction));
-  };
+  }, [moveSlide]);
 
   useEffect(() => {
     setPresentableSlides(getPresentableSlides());
     const timer = setTimeout(() => setIsAnimating(false), 500);
 
     return () => clearTimeout(timer);
-  }, [index]);
-
-  const clampOffsetRadius = (offsetRadius: number) => {
-    const upperBound = Math.floor((slidesData.length - 1) / 2);
-    return Math.max(0, Math.min(offsetRadius, upperBound));
-  };
-
-  const getPresentableSlides = () => {
-    let clampedOffsetRadius = clampOffsetRadius(offsetRadius);
-    const presentableSlides = [];
-
-    for (let i = -clampedOffsetRadius; i <= clampedOffsetRadius; i++) {
-      presentableSlides.push({
-        data: slidesData[modBySlidesLength(index + i)],
-        index: modBySlidesLength(index + i),
-      });
-    }
-
-    return presentableSlides;
-  };
+  }, [getPresentableSlides]);
 
   return (
     <React.Fragment>
@@ -107,6 +114,7 @@ export const VerticalCarousel: React.FC<VerticalCarouselProps> = ({
           <div className="dots z-10 flex absolute bottom-2">
             {slidesData.map((_, i) => (
               <button
+                data-testid={`navButton-${i}`}
                 key={i}
                 className={`dot ${i === index ? "dot--active" : ""}`}
                 onClick={() => setIndex(i)}
