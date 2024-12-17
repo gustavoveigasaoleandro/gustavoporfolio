@@ -9,6 +9,7 @@ export const InputComponent = ({
   id,
   name,
   placeholder = "",
+  onChange,
   ...rest
 }: InputProps) => {
   return (
@@ -23,8 +24,9 @@ export const InputComponent = ({
         id={id}
         name={name}
         placeholder={placeholder}
-        {...rest}
-        className=" bg-light-default shadow-2xl laptop:rounded-[9px] mobile:rounded-[5px] mobile:h-[50px] laptop:h-[52px] w-full tablet:text-3xs mobile:text-4xs"
+        onChange={onChange} // Suporte ao evento onChange
+        {...rest} // Suporte para propriedades extras
+        className="bg-light-default shadow-2xl laptop:rounded-[9px] mobile:rounded-[5px] mobile:h-[50px] laptop:h-[52px] w-full tablet:text-3xs mobile:text-4xs"
       />
     </div>
   );
