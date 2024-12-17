@@ -32,7 +32,7 @@ export const LogoWithPopover = ({
 
   return (
     <div
-      className="w-[15%] transition-transform transform hover:scale-125 float"
+      className="transition-transform transform hover:scale-125 float"
       onMouseEnter={handlePopoverOpen}
       onMouseLeave={handlePopoverClose}
       style={{
@@ -42,8 +42,11 @@ export const LogoWithPopover = ({
       <Image
         src={src}
         alt={alt}
-        className="w-full"
-        style={{ objectFit: "contain" }}
+        className=" mobile:w-[40px] tablet:w-[60px] laptop:w-[60px] desktop:w-[65px] image-rendering-smooth"
+        style={{
+          objectFit: "cover",
+          imageRendering: "crisp-edges", // Para Chrome
+        }}
       />
       <Popover
         id={`popover-${alt}`}
