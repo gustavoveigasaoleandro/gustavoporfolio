@@ -34,7 +34,10 @@ export function DrawerWithContent({ skills }: DrawerWithContentProps) {
   const isMobile = typeof window !== "undefined" && "ontouchstart" in window;
 
   return (
-    <div data-testid="drawer-with-content" className="w-screen h-full">
+    <div
+      data-testid="drawer-with-content"
+      className="w-screen h-full overflow-y-auto"
+    >
       <Drawer open={isOpen} onOpenChange={setIsOpen} direction="bottom">
         {/* Trigger usando todos os SkillButtons */}
         <div className="flex mobile:flex-col tablet:flex-row align-middle items-center h-screen min-h-[600px] justify-evenly w-full">
