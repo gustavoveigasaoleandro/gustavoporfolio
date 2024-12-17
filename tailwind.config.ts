@@ -11,6 +11,10 @@ const config = {
   ],
   prefix: "",
   theme: {
+    imageRendering: {
+      crisp: "pixelated",
+      smooth: "auto",
+    },
     fontFamily: {
       mulish: "Poppins, sans-serif",
     },
