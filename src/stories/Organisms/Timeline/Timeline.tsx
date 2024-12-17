@@ -111,7 +111,7 @@ export const TimelineComponent = () => {
               color="secondary"
               costumStyle="font-bold w-[90%]  text-left"
             >
-              2022 FirstPag - Meu primeiro trabalho como desenvolvedor
+              2022 - FirstPag
             </Text>
             <Image alt="college image" src={FirstJob} className=" w-[90%]" />
             <Text type="small" costumStyle="  w-[90%] text-left">
