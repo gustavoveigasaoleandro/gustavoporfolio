@@ -95,8 +95,8 @@ const Home = () => {
             </HeaderComponent>
             <div className=" flex flex-col w-full justify-center items-center ">
               <SkillMeter progress={80} skill={"Frontend"} />
-              <SkillMeter progress={30} skill={"DevOps"} />
               <SkillMeter progress={70} skill={"Backend"} />
+              <SkillMeter progress={30} skill={"DevOps"} />
             </div>
           </section>
 
