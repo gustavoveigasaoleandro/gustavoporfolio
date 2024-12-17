@@ -4,6 +4,7 @@ import { Text } from "@/stories/Atoms/Text/Text";
 import { DrawerComponent } from "@/stories/Molecules/Drawer/Drawer";
 import "./style.css";
 import { useLoading } from "@/context/LoadingContext";
+import Link from "next/link";
 export const Header = () => {
   const [isAtTop, setIsAtTop] = useState(true);
   const { setIsLoading } = useLoading();
@@ -33,12 +34,12 @@ export const Header = () => {
         isAtTop ? "header-slide-down" : "hidden"
       }`}
     >
-      <div className="flex flex-wrap max-w-[50%]">
+      <Link href={"/"} className="flex flex-wrap max-w-[50%]">
         <Text color="white">
           <span className=" text-secondary-default">Gustavo</span> Veiga São
           Leandro
         </Text>
-      </div>
+      </Link>
       <DrawerComponent />
     </header>
   );
